@@ -1,1 +1,5 @@
-<p>note-area works!</p>
+<section id="note-area">
+  <h1 class="md:text-6xl font-bold">Today</h1>
+  <h1 class="md:text-xl font-semibold mt-2">{{ currentDateTime | date: 'EEEE, MMMM d, y' }}</h1>
+  <app-tasks></app-tasks>
+</section>
