@@ -12,8 +12,8 @@ export class NoteArea {
   currentDateTime: Date = new Date();
 
   ngOnInit() {
-    
-    setInterval(() => {this.currentDateTime = new Date()}, 1000);
+    setInterval(() => {
+      this.currentDateTime = new Date();
+    }, 1000);
   }
-
 }
