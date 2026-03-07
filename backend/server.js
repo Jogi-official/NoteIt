@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 const app = require('./app');
 
-const DB = process.env.DATABASE;
+const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
 if (!process.env.DATABASE || !process.env.DATABASE_PASSWORD) {
   throw new Error(
     'Missing required env vars DATABASE and/or DATABASE_PASSWORD. Check that config.env is loaded.',
