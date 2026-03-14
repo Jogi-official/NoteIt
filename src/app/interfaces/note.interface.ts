@@ -1,4 +1,5 @@
-export interface Note {
+export interface Notes {
   title: string;
-  description: string;
+  content: string;
+  createdAt: Date;
 }

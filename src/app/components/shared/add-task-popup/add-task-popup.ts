@@ -30,6 +30,7 @@ export class AddTaskPopup {
   addTask() {
     this.notesService.addNote(this.taskForm.value).subscribe({
       next: (_res) => {
+        this.notesService.fetchAllNotes();
         this.closePopup();
       },
       error: (err) => {

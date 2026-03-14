@@ -1,6 +1,5 @@
-import { AfterViewInit, Component, ElementRef } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, viewChild } from '@angular/core';
 import { AddTaskPopup } from '../../../shared/add-task-popup/add-task-popup';
-import { viewChild } from '@angular/core';
 
 @Component({
   selector: 'app-tasks',
@@ -10,6 +9,7 @@ import { viewChild } from '@angular/core';
 })
 export class Tasks implements AfterViewInit {
   isAddTaskOpen = false;
+
   titleInput = viewChild<ElementRef>('titleInput');
 
   openAddTaskPopup(): void {

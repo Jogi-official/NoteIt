@@ -4,9 +4,9 @@ exports.getAllNotes = async (req, res) => {
   try {
     const notes = await Note.find();
     res.status(200).json({
-      message: 'All notes are fetched correctly',
       data: {
         notes: notes,
+        notesCount: notes.length,
       },
     });
   } catch (err) {
