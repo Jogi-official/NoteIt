@@ -4,7 +4,7 @@ exports.getAllNotes = async (req, res) => {
   try {
     const notes = await Note.find();
     res.status(200).json({
-      message: 'All tours are fetched correctly',
+      message: 'All notes are fetched correctly',
       data: {
         notes: notes,
       },
@@ -19,6 +19,7 @@ exports.getAllNotes = async (req, res) => {
 
 exports.createNotes = async (req, res) => {
   try {
+    console.log(req.body);
     const note = await Note.create(req.body);
     res.status(201).json({
       message: 'Notes Created',

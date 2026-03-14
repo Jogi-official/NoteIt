@@ -1,8 +1,17 @@
 <div class="flex h-screen">
+  <!-- Sidebar -->
   <div class="hidden sm:block md:w-80 w-60 h-full shrink-0 bg-orange-50">
     <app-sidebar></app-sidebar>
   </div>
-  <div class="flex-1 bg-white-50 p-8">
-    <app-note-area></app-note-area>
+
+  <!-- Center (Tasks Area) -->
+  <div class="flex-1 bg-gray-50 p-10 flex justify-center">
+    <div class="w-full max-w-2xl">
+      <app-note-area></app-note-area>
+    </div>
+  </div>
+  <!-- Right Panel -->
+  <div class="hidden lg:block w-80 border-l border-gray-200 bg-white p-6">
+    <app-right-panel></app-right-panel>
   </div>
 </div>

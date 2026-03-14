@@ -1,5 +1,14 @@
-<section id="sidebar">
+<!-- <section id="sidebar">
   <app-notification-area></app-notification-area>
   <app-notes-control></app-notes-control>
   <app-my-projects></app-my-projects>
+</section> -->
+<section id="sidebar" class="flex flex-col h-full bg-[#F7F3EE] border-r border-gray-200">
+  <app-notification-area></app-notification-area>
+
+  <app-notes-control></app-notes-control>
+
+  <div class="flex-1 overflow-y-auto">
+    <app-my-projects></app-my-projects>
+  </div>
 </section>
