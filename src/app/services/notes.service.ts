@@ -19,6 +19,10 @@ export class NotesService {
     return this.http.get(`${this.ENV_URL}`);
   }
 
+  getLocalQuotes() {
+    return this.http.get<any[]>('/quotes.json');
+  }
+
   fetchAllNotes() {
     this.getAllNotes().subscribe({
       next: (res: any) => {

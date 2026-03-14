@@ -1,12 +1,12 @@
 <div class="bg-white border rounded-xl p-5 mb-6 shadow-sm">
   <h3 class="font-semibold text-lg">🔥 {{ notesCountForToday() }} Tasks Remaining Today</h3>
 
-  <p class="text-sm text-gray-500">Stay focused and finish strong.</p>
+  <p class="text-sm text-gray-500">{{ quote().quote }} — {{ quote().author }}</p>
 </div>
 <div class="max-w-3xl">
   <h1 class="text-5xl font-bold">Today</h1>
 
-  <p class="text-gray-500 mt-2">Saturday, March 14, 2026</p>
+  <p class="text-gray-500 mt-2">{{ todayDate }}</p>
 </div>
 
 <app-tasks></app-tasks>
