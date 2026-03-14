@@ -1,8 +1,10 @@
-<div class="popup-overlay fixed inset-0 bg-black/40 flex items-center justify-center">
-  <div class="popup bg-white w-[420px] rounded-xl p-6 shadow-lg">
+<div class="popup-overlay fixed inset-0 bg-black/40 flex items-center justify-center p-4 z-50">
+  <div
+    class="popup bg-white w-full max-w-md sm:max-w-lg rounded-xl p-5 sm:p-6 shadow-xl scale-95 animate-[fadeIn_.15s_ease-out]"
+  >
     <!-- Header -->
     <div class="flex items-center justify-between mb-4">
-      <h2 class="text-2xl font-semibold">Add Task</h2>
+      <h2 class="text-xl sm:text-2xl font-semibold">Add Task</h2>
 
       <button (click)="closePopup()" class="p-1 hover:bg-gray-100 rounded">
         <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
@@ -13,38 +15,44 @@
       </button>
     </div>
 
-    <!-- Content -->
     <!-- Form -->
-    <form [formGroup]="taskForm" (ngSubmit)="addTask()" class="flex flex-col gap-4">
+    <form [formGroup]="taskForm" (ngSubmit)="addTask()" class="flex flex-col gap-4 w-full">
       <!-- Title -->
-      <input
-        formControlName="title"
-        type="text"
-        placeholder="Task title"
-        class="border rounded-lg p-2 focus:ring-2 focus:ring-amber-500 outline-none"
-      />
+      <div class="flex flex-col gap-1">
+        <label class="text-sm font-medium text-gray-600">Title</label>
+        <input
+          #titleInput
+          formControlName="title"
+          type="text"
+          placeholder="Task title"
+          class="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-amber-500 outline-none w-full"
+        />
+      </div>
 
       <!-- Description -->
-      <textarea
-        formControlName="content"
-        rows="3"
-        placeholder="Description"
-        class="border rounded-lg p-2 resize-none focus:ring-2 focus:ring-amber-500 outline-none"
-      ></textarea>
+      <div class="flex flex-col gap-1">
+        <label class="text-sm font-medium text-gray-600">Description</label>
+        <textarea
+          formControlName="content"
+          rows="3"
+          placeholder="Write more details..."
+          class="border rounded-lg px-3 py-2 resize-none focus:ring-2 focus:ring-amber-500 outline-none w-full"
+        ></textarea>
+      </div>
 
       <!-- Buttons -->
-      <div class="flex justify-end gap-2">
+      <div class="flex justify-end gap-3 pt-4 border-t mt-2">
         <button
           type="button"
           (click)="closePopup()"
-          class="px-3 py-1 border rounded-lg hover:bg-gray-100"
+          class="px-4 py-2 border rounded-lg hover:bg-gray-100"
         >
           Cancel
         </button>
 
         <button
           type="submit"
-          class="px-4 py-1 bg-amber-600 text-white rounded-lg hover:bg-amber-700"
+          class="px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700"
         >
           Add Task
         </button>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, viewChild } from '@angular/core';
 import { AddTaskPopup } from '../../../shared/add-task-popup/add-task-popup';
 
 @Component({
@@ -7,15 +7,20 @@ import { AddTaskPopup } from '../../../shared/add-task-popup/add-task-popup';
   templateUrl: './notes-control.html',
   styleUrl: './notes-control.css',
 })
-export class NotesControl {
-  showPopup = false;
+export class NotesControl implements AfterViewInit {
+  isAddTaskOpen = false;
+  titleInput = viewChild<ElementRef>('titleInput');
 
-  openAddtaskPopup() {
-    console.log('clicked');
-    this.showPopup = true;
+  openAddTaskPopup(): void {
+    this.isAddTaskOpen = true;
   }
 
-  closePopup() {
-    this.showPopup = false;
+  closeAddTaskPopup(): void {
+    this.isAddTaskOpen = false;
+  }
+
+  //Hooks
+  ngAfterViewInit() {
+    this.titleInput()?.nativeElement.focus();
   }
 }
