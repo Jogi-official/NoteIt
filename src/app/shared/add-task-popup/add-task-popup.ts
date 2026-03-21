@@ -1,6 +1,6 @@
 import { Component, output } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NotesService } from '../../../services/notes.service';
+import { NotesService } from '../../services/notes.service';
 
 @Component({
   selector: 'app-add-task-popup',

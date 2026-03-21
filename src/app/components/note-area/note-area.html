@@ -1,12 +1,47 @@
-<div class="bg-white border rounded-xl p-5 mb-6 shadow-sm">
-  <h3 class="font-semibold text-lg">🔥 {{ notesCountForToday() }} Tasks Remaining Today</h3>
+<div
+  class="bg-gradient-to-r from-orange-50 to-white border border-gray-200/60 rounded-2xl p-5 mb-6 shadow-sm"
+>
+  <h3 class="font-semibold text-lg text-gray-800 flex items-center gap-2">
+    🔥 <span>{{ notesCountForToday() }} Tasks Remaining Today</span>
+  </h3>
 
-  <p class="text-sm text-gray-500">{{ quote().quote }} — {{ quote().author }}</p>
+  <p class="text-sm text-gray-500 mt-2 leading-relaxed">
+    {{ quote().quote }} —
+    <span class="text-gray-600 font-medium">{{ quote().author }}</span>
+  </p>
 </div>
-<div class="max-w-3xl">
-  <h1 class="text-5xl font-bold">Today</h1>
-
-  <p class="text-gray-500 mt-2">{{ todayDate }}</p>
+<div class="mb-6">
+  <h1 class="text-4xl font-bold text-gray-900">Today</h1>
+  <p class="text-gray-500 mt-1 text-sm">{{ todayDate }}</p>
 </div>
 
-<app-tasks></app-tasks>
+<div class="relative">
+  <!-- CONTENT -->
+  <div class="relative z-10">
+    <app-tasks></app-tasks>
+  </div>
+
+  <!-- BACKGROUND ILLUSTRATION -->
+  <div
+    class="absolute bottom-0 left-1/2 -translate-x-1/2 opacity-10 pointer-events-none hidden md:block"
+  >
+    <svg
+      width="300"
+      height="300"
+      viewBox="0 0 200 200"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class="blur-[1px]"
+    >
+      <rect x="40" y="30" width="120" height="140" rx="16" fill="#FB923C" />
+
+      <rect x="55" y="55" width="70" height="10" rx="5" fill="white" />
+      <rect x="55" y="80" width="90" height="10" rx="5" fill="white" />
+      <rect x="55" y="105" width="60" height="10" rx="5" fill="white" />
+
+      <circle cx="135" cy="60" r="8" fill="white" />
+      <circle cx="135" cy="85" r="8" fill="white" />
+      <circle cx="135" cy="110" r="8" fill="white" />
+    </svg>
+  </div>
+</div>

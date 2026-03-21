@@ -41,7 +41,6 @@ export class NoteArea implements OnInit {
     this.notesService.getLocalQuotes().subscribe({
       next: (res) => {
         this.quotes.set(res);
-        console.log(this.quotes().length);
       },
       error: (err) => {
         console.error(err);

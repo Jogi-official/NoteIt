@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, viewChild } from '@angular/core';
-import { AddTaskPopup } from '../../../shared/add-task-popup/add-task-popup';
+import { AddTaskPopup } from '../../../../shared/add-task-popup/add-task-popup';
 
 @Component({
   selector: 'app-notes-control',

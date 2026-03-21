@@ -1,17 +1,17 @@
 import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Notes } from '../interfaces/note.interface';
+import { Note } from '../interfaces/note.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NotesService {
   ENV_URL = 'http://localhost:3000/api/v1/notes';
-  notes = signal<Notes[]>([]);
+  notes = signal<Note[]>([]);
 
   constructor(private readonly http: HttpClient) {}
 
-  addNote(noteData: Notes) {
+  addNote(noteData: Note) {
     return this.http.post(`${this.ENV_URL}`, noteData);
   }
 
@@ -21,6 +21,10 @@ export class NotesService {
 
   getLocalQuotes() {
     return this.http.get<any[]>('/quotes.json');
+  }
+
+  updateNote(noteId: string, updatedData: Partial<Note>) {
+    return this.http.patch(`${this.ENV_URL}/${noteId}`, updatedData);
   }
 
   fetchAllNotes() {

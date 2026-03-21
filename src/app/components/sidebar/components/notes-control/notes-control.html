@@ -1,18 +1,31 @@
-<section class="px-4 py-4 space-y-2">
+<section class="px-3 py-4 space-y-1">
+  <!-- Primary Action -->
   <button
-    class="flex items-center gap-3 text-orange-500 font-medium hover:text-orange-600"
     (click)="openAddTaskPopup()"
+    class="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg bg-orange-500 text-white font-medium shadow-sm hover:bg-orange-600 active:scale-[0.98] transition"
   >
-    ➕ Add Task
+    ➕ <span>Add Task</span>
   </button>
 
-  <button class="flex items-center gap-3 text-gray-600 hover:text-black">🔍 Search Tasks</button>
+  <!-- Secondary Actions -->
+  <button
+    class="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition"
+  >
+    🔍 <span>Search Tasks</span>
+  </button>
 
-  <button class="flex items-center gap-3 text-gray-600 hover:text-black">📅 Upcoming</button>
+  <button
+    class="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition"
+  >
+    📅 <span>Upcoming</span>
+  </button>
 
-  <button class="flex items-center gap-3 text-gray-600 hover:text-black">⚙ Filters & Labels</button>
+  <button
+    class="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition"
+  >
+    ⚙ <span>Filters & Labels</span>
+  </button>
 </section>
-
 <!-- Popup -->
 
 @if (isAddTaskOpen) {

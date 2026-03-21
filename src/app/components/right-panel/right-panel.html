@@ -1,37 +1,50 @@
-<div class="bg-orange-50 border border-orange-200 rounded-xl p-5">
-  <h3 class="font-semibold mb-3">Today's Progress</h3>
+<div
+  class="bg-gradient-to-br from-orange-50 to-orange-100/60 border border-orange-200/60 rounded-2xl p-5 shadow-sm"
+>
+  <h3 class="font-semibold text-gray-800 mb-4">Today's Progress</h3>
 
-  <div class="space-y-2 text-sm">
-    <div class="flex justify-between">
+  <div class="space-y-3 text-sm">
+    <div class="flex justify-between text-gray-600">
       <span>Completed</span>
-      <span class="font-medium">4</span>
+      <span class="font-semibold text-gray-800">4</span>
     </div>
 
-    <div class="flex justify-between">
+    <div class="flex justify-between text-gray-600">
       <span>Remaining</span>
-      <span class="font-medium">6</span>
+      <span class="font-semibold text-gray-800">6</span>
     </div>
   </div>
 
-  <div class="mt-3 h-2 bg-orange-200 rounded-full">
-    <div class="h-2 bg-orange-500 rounded-full w-2/5"></div>
+  <!-- Progress Bar -->
+  <div class="mt-4">
+    <div class="h-2.5 bg-orange-200/70 rounded-full overflow-hidden">
+      <div class="h-full bg-orange-500 rounded-full w-[40%] transition-all duration-500"></div>
+    </div>
   </div>
 </div>
-<div class="space-y-6">
-  <h2 class="text-xl font-semibold">Task Details</h2>
 
-  <div class="bg-gray-50 border rounded-xl p-4">
-    <h3 class="font-medium">Due Date</h3>
-    <p class="text-gray-500 text-sm">No due date</p>
+<div class="mt-8 space-y-5">
+  <h2 class="text-lg font-semibold text-gray-800">Task Details</h2>
+
+  <!-- Card -->
+  <div
+    class="bg-white border border-gray-200/70 rounded-2xl p-4 shadow-sm hover:shadow-md transition"
+  >
+    <p class="text-xs text-gray-500 mb-1">Due Date</p>
+    <p class="text-sm font-medium text-gray-800">No due date</p>
   </div>
 
-  <div class="bg-gray-50 border rounded-xl p-4">
-    <h3 class="font-medium">Priority</h3>
-    <p class="text-gray-500 text-sm">Medium</p>
+  <div
+    class="bg-white border border-gray-200/70 rounded-2xl p-4 shadow-sm hover:shadow-md transition"
+  >
+    <p class="text-xs text-gray-500 mb-1">Priority</p>
+    <p class="text-sm font-medium text-gray-800">Medium</p>
   </div>
 
-  <div class="bg-gray-50 border rounded-xl p-4">
-    <h3 class="font-medium">Project</h3>
-    <p class="text-gray-500 text-sm">Project Beta</p>
+  <div
+    class="bg-white border border-gray-200/70 rounded-2xl p-4 shadow-sm hover:shadow-md transition"
+  >
+    <p class="text-xs text-gray-500 mb-1">Project</p>
+    <p class="text-sm font-medium text-gray-800">Project Beta</p>
   </div>
 </div>

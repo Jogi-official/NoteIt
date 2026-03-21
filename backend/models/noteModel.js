@@ -13,6 +13,10 @@ const noteSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  completed: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const Note = mongoose.model('Note', noteSchema);
