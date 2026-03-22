@@ -27,6 +27,10 @@ export class NotesService {
     return this.http.patch(`${this.ENV_URL}/${noteId}`, updatedData);
   }
 
+  deleteNode(noteId: string) {
+    return this.http.delete(`${this.ENV_URL}/${noteId}`);
+  }
+
   fetchAllNotes() {
     this.getAllNotes().subscribe({
       next: (res: any) => {

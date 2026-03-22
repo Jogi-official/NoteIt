@@ -16,6 +16,7 @@
             [class.bg-orange-50]="selectedNote?._id === note._id"
             [class.border-gray-200]="selectedNote?._id !== note._id"
             (click)="selectNote(note)"
+            (keydown.enter)="selectNote(note)"
           >
             <!-- 2. Checkbox: Passed $event to the toggle function -->
             <input
@@ -23,6 +24,10 @@
               class="w-5 h-5 accent-orange-500 cursor-pointer"
               [checked]="note.completed"
               (click)="onTaskToggle(note, $event)"
+              aria-label="Toggle task"
+              aria-labelledby="toggle-task"
+              (keydown.enter)="selectNote(note)"
+              tabindex="0"
             />
 
             <!-- 3. Title -->

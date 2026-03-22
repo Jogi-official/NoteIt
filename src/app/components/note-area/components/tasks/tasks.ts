@@ -46,6 +46,9 @@ export class Tasks implements AfterViewInit {
     this.notesService.updateNote(note._id, { completed: note.completed }).subscribe({
       next: (res) => {
         console.log('Note updated successfully:', res);
+        this.notesService.deleteNode(note._id).subscribe(() => {
+          this.notesService.fetchAllNotes();
+        });
       },
       error: (err) => {
         console.error('Error updating note:', err);
