@@ -3,6 +3,7 @@ import { NotesService } from '../../../../services/notes.service';
 import { FormsModule } from '@angular/forms';
 import { Note } from '../../../../interfaces/note.interface';
 import { AddTaskPopup } from '../../../../shared/add-task-popup/add-task-popup';
+import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-tasks',
@@ -37,22 +38,23 @@ export class Tasks implements AfterViewInit {
     this.selectNote(note);
   }
 
+  updateNotes(note: Note) {
+    this.notesService
+      .updateNote(note._id, { completed: note.completed })
+      .pipe(
+        switchMap(() => this.notesService.deleteNode(note._id)), // ✅ return
+        switchMap(() => this.notesService.getAllNotes()),
+      )
+      .subscribe({
+        next: (res: any) => {
+          this.notesService.notes.set(res.data.notes); // update signal
+          this.selectedNote = null;
+        },
+        error: (err) => console.error(err),
+      });
+  }
   //Hooks
   ngAfterViewInit() {
     this.titleInput()?.nativeElement.focus();
-  }
-
-  updateNotes(note: Note) {
-    this.notesService.updateNote(note._id, { completed: note.completed }).subscribe({
-      next: (res) => {
-        console.log('Note updated successfully:', res);
-        this.notesService.deleteNode(note._id).subscribe(() => {
-          this.notesService.fetchAllNotes();
-        });
-      },
-      error: (err) => {
-        console.error('Error updating note:', err);
-      },
-    });
   }
 }
