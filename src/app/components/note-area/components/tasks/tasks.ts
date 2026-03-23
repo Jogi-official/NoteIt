@@ -35,7 +35,6 @@ export class Tasks implements AfterViewInit {
     event.stopPropagation();
     note.completed = !note.completed;
     this.updateNotes(note);
-    this.selectNote(note);
   }
 
   updateNotes(note: Note) {

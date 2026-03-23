@@ -11,7 +11,7 @@ export class RightPanel {
   private readonly notesService = inject(NotesService);
   todayDate: string = new Date().toDateString();
   notes = this.notesService.notes;
-
+  percentageCompleted: Number = 0;
   constructor() {
     effect(() => {
       this.notes().forEach((note) => {
@@ -21,6 +21,10 @@ export class RightPanel {
           this.notesService.updateNote(note._id, { backlog: false }).subscribe();
         }
       });
+
+      this.percentageCompleted = Math.abs(
+        (this.completedTasks() / (this.completedTasks() + this.remainingTasks())) * 100,
+      );
     });
   }
 

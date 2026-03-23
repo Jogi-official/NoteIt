@@ -22,33 +22,36 @@
   <!-- Progress Bar -->
   <div class="mt-4">
     <div class="h-2.5 bg-orange-200/70 rounded-full overflow-hidden">
-      <div class="h-full bg-orange-500 rounded-full w-[40%] transition-all duration-500"></div>
+      <div
+        class="h-full bg-orange-500 rounded-full transition-all duration-500"
+        [style.width.%]="percentageCompleted"
+      ></div>
     </div>
   </div>
-</div>
 
-<div class="mt-8 space-y-5">
-  <h2 class="text-lg font-semibold text-gray-800">Task Details</h2>
+  <div class="mt-8 space-y-5">
+    <h2 class="text-lg font-semibold text-gray-800">Task Details</h2>
 
-  <!-- Card -->
-  <div
-    class="bg-white border border-gray-200/70 rounded-2xl p-4 shadow-sm hover:shadow-md transition"
-  >
-    <p class="text-xs text-gray-500 mb-1">Due Date</p>
-    <p class="text-sm font-medium text-gray-800">No due date</p>
-  </div>
+    <!-- Card -->
+    <div
+      class="bg-white border border-gray-200/70 rounded-2xl p-4 shadow-sm hover:shadow-md transition"
+    >
+      <p class="text-xs text-gray-500 mb-1">Due Date</p>
+      <p class="text-sm font-medium text-gray-800">No due date</p>
+    </div>
 
-  <div
-    class="bg-white border border-gray-200/70 rounded-2xl p-4 shadow-sm hover:shadow-md transition"
-  >
-    <p class="text-xs text-gray-500 mb-1">Priority</p>
-    <p class="text-sm font-medium text-gray-800">Medium</p>
-  </div>
+    <div
+      class="bg-white border border-gray-200/70 rounded-2xl p-4 shadow-sm hover:shadow-md transition"
+    >
+      <p class="text-xs text-gray-500 mb-1">Priority</p>
+      <p class="text-sm font-medium text-gray-800">Medium</p>
+    </div>
 
-  <div
-    class="bg-white border border-gray-200/70 rounded-2xl p-4 shadow-sm hover:shadow-md transition"
-  >
-    <p class="text-xs text-gray-500 mb-1">Project</p>
-    <p class="text-sm font-medium text-gray-800">Project Beta</p>
+    <div
+      class="bg-white border border-gray-200/70 rounded-2xl p-4 shadow-sm hover:shadow-md transition"
+    >
+      <p class="text-xs text-gray-500 mb-1">Project</p>
+      <p class="text-sm font-medium text-gray-800">Project Beta</p>
+    </div>
   </div>
 </div>
