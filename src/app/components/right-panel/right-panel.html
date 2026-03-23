@@ -6,12 +6,16 @@
   <div class="space-y-3 text-sm">
     <div class="flex justify-between text-gray-600">
       <span>Completed</span>
-      <span class="font-semibold text-gray-800">4</span>
+      <span class="font-semibold text-gray-800">{{ completedTasks() }}</span>
     </div>
 
     <div class="flex justify-between text-gray-600">
       <span>Remaining</span>
-      <span class="font-semibold text-gray-800">6</span>
+      <span class="font-semibold text-gray-800">{{ remainingTasks() }}</span>
+    </div>
+    <div class="flex justify-between text-gray-600">
+      <span>Backlog</span>
+      <span class="font-semibold text-gray-800">{{ backlogTasks() }}</span>
     </div>
   </div>
 

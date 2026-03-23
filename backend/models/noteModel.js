@@ -17,6 +17,10 @@ const noteSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  backlog: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const Note = mongoose.model('Note', noteSchema);

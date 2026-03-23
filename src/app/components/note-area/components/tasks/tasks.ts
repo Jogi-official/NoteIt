@@ -42,7 +42,7 @@ export class Tasks implements AfterViewInit {
     this.notesService
       .updateNote(note._id, { completed: note.completed })
       .pipe(
-        switchMap(() => this.notesService.deleteNode(note._id)), // ✅ return
+        // switchMap(() => this.notesService.deleteNode(note._id)), // ✅ return
         switchMap(() => this.notesService.getAllNotes()),
       )
       .subscribe({

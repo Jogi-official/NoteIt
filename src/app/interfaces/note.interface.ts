@@ -4,4 +4,5 @@ export interface Note {
   createdAt: Date;
   _id: string;
   completed?: boolean;
+  backlog?: boolean;
 }
