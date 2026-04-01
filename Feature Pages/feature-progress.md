@@ -17,7 +17,7 @@ Our feature progress system enables users to track the status of various feature
 | ---------------------------- | ------------- |
 | UI                           | 100% Complete |
 | Hook to Backend              | 100% Complete |
-| Make progress Bar Functional | 0% Complete   |
+| Make progress Bar Functional | 100% Complete |
 ```
 
 ## Requirements

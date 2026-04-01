@@ -17,10 +17,19 @@ const noteSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  backlog: {
-    type: Boolean,
-    default: false,
+  dueDate: {
+    type: Date,
+    default: Date.now(),
   },
+});
+
+noteSchema.virtual('backlog').get(function () {
+  if (this.completed) return false;
+
+  const today = new Date();
+  const created = new Date(this.createdAt);
+
+  return created.toDateString() !== today.toDateString();
 });
 
 const Note = mongoose.model('Note', noteSchema);

@@ -44,6 +44,7 @@ This project is designed to be scalable and production-ready.
 ## 🚀 Feature Pages (Design Docs)
 
 **Feature 1**: [Feature Progress](./Feature%20Pages/feature-progress.md)
+**Feature 2** [Auto Scheduling](./Feature%20Pages/auto-task-scheduling.md)
 
 ## 🏗️ Tech Stack
 

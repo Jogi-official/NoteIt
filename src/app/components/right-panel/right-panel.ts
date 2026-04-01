@@ -1,51 +1,89 @@
 import { Component, computed, effect, inject } from '@angular/core';
 import { NotesService } from '../../services/notes.service';
+import { Note } from '../../interfaces/note.interface';
 
 @Component({
   selector: 'app-right-panel',
-  imports: [],
+  standalone: true,
   templateUrl: './right-panel.html',
   styleUrl: './right-panel.css',
 })
 export class RightPanel {
   private readonly notesService = inject(NotesService);
-  todayDate: string = new Date().toDateString();
+
   notes = this.notesService.notes;
-  percentageCompleted: Number = 0;
+
+  percentageCompleted: number = 0;
+
   constructor() {
     effect(() => {
-      this.notes().forEach((note) => {
-        const isToday = new Date(note.createdAt).toDateString() === this.todayDate;
+      const total = this.completedTasks() + this.remainingTasks();
 
-        if (!isToday) {
-          this.notesService.updateNote(note._id, { backlog: false }).subscribe();
-        }
-      });
-
-      this.percentageCompleted = Math.abs(
-        (this.completedTasks() / (this.completedTasks() + this.remainingTasks())) * 100,
-      );
+      this.percentageCompleted =
+        total === 0 ? 0 : Math.round((this.completedTasks() / total) * 100);
     });
   }
 
+  // ✅ Helper function
+  isToday(date: string | Date): boolean {
+    const today = new Date();
+    const d = new Date(date);
+
+    return (
+      d.getDate() === today.getDate() &&
+      d.getMonth() === today.getMonth() &&
+      d.getFullYear() === today.getFullYear()
+    );
+  }
+
+  isPast(date: string | Date): boolean {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const d = new Date(date);
+    d.setHours(0, 0, 0, 0);
+
+    return d < today;
+  }
+
+  isFuture(date: string | Date): boolean {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const d = new Date(date);
+    d.setHours(0, 0, 0, 0);
+
+    return d > today;
+  }
+
+  // 🟢 Completed Today
   completedTasks = computed(
     () =>
-      this.notes().filter(
-        (note) => new Date(note.createdAt).toDateString() === this.todayDate && note.completed,
-      ).length,
+      this.notes().filter((note) => note.dueDate && this.isToday(note.dueDate) && note.completed)
+        .length,
   );
 
-  backlogTasks = computed(
-    () =>
-      this.notes().filter(
-        (note) => new Date(note.createdAt).toDateString() !== this.todayDate && !note.completed,
-      ).length,
-  );
-
+  // 🟡 Remaining Today
   remainingTasks = computed(
     () =>
       this.notes().filter(
-        (note) => new Date(note.createdAt).toDateString() === this.todayDate && !note.completed,
+        (note: Note) => note.dueDate && this.isToday(note.dueDate) && !note.completed,
+      ).length,
+  );
+
+  // 🔴 Backlog (Overdue)
+  backlogTasks = computed(
+    () =>
+      this.notes().filter(
+        (note: Note) => note.dueDate && this.isPast(note.dueDate) && !note.completed,
+      ).length,
+  );
+
+  // 🔵 Upcoming
+  upcomingTasks = computed(
+    () =>
+      this.notes().filter(
+        (note: Note) => note.dueDate && this.isFuture(note.dueDate) && !note.completed,
       ).length,
   );
 }

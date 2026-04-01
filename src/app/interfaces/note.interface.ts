@@ -5,4 +5,5 @@ export interface Note {
   _id: string;
   completed?: boolean;
   backlog?: boolean;
+  dueDate?: Date;
 }

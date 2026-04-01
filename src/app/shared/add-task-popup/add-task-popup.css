@@ -16,3 +16,10 @@
   padding: 20px;
   border-radius: 10px;
 }
+.cdk-overlay-container {
+  z-index: 1000 !important;
+}
+.mat-datepicker-content {
+  background: white !important;
+  border-radius: 12px;
+}
