@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "dev:node": "nodemon backend/server.js",
+    "dev:node": "set NODE_ENV=development && nodemon backend/server.js",
+    "dev:prod": "set NODE_ENV=production && nodemon backend/server.js",
     "dev": "concurrently \"ng serve\" \"cross-env NODE_ENV=development nodemon backend/server.js\"",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",

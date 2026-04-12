@@ -1,7 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
-
+const globalErrorHandler = require('./controllers/errorController');
 const app = express();
 const notesRouter = require('./routes/notesRouter');
 
@@ -24,4 +24,5 @@ app.use(express.json());
 // ROUTES
 app.use('/api/v1/notes', notesRouter);
 
+app.use(globalErrorHandler);
 module.exports = app;

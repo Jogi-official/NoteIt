@@ -5,5 +5,8 @@ export interface Note {
   _id: string;
   completed?: boolean;
   backlog?: boolean;
+  priority: Priority;
   dueDate?: Date;
 }
+
+type Priority = 'low' | 'medium' | 'high';

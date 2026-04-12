@@ -21,6 +21,12 @@ const noteSchema = new mongoose.Schema({
     type: Date,
     default: Date.now(),
   },
+  priority: {
+    type: String,
+    required: [true, 'A note must have a priority'],
+    enum: ['low', 'medium', 'high'],
+    default: 'medium',
+  },
 });
 
 noteSchema.virtual('backlog').get(function () {

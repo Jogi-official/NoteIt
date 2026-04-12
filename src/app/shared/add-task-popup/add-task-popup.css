@@ -23,3 +23,14 @@
   background: white !important;
   border-radius: 12px;
 }
+::ng-deep .custom-date .mat-mdc-text-field-wrapper {
+  border-radius: 0.75rem;
+}
+
+::ng-deep .custom-date .mdc-notched-outline {
+  border-color: #d1d5db;
+}
+
+::ng-deep .custom-date.mat-focused .mdc-notched-outline {
+  border-color: #fb923c !important;
+}
